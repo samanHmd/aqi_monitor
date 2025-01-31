@@ -1,7 +1,7 @@
 from aqi_monitor import AQIMonitor
 
 #your api_token
-API_TOKEN = "YOUR_API_TOKEN"
+API_TOKEN = "921068569609ade79515f3c3f445336a2a3adf59"
 
 #your test coordinates
 latitude_1 = 45.69
@@ -34,3 +34,6 @@ if avg_pm25 is not None:
     print(f"Final Average PM2.5: {avg_pm25} µg/m³")
 else:
     print("No PM2.5 data available.")
+
+#stop the sampling
+aqi_monitor.stop_sampling()

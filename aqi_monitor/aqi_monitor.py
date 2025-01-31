@@ -105,6 +105,10 @@ class AQIMonitor:
         logging.info(f"Starting sampling for {self.sampling_period} minutes at a rate of {self.sampling_rate} samples per minute.")
 
         for _ in range(total_samples):
+
+            if self.sampling_status == "STOPPED":  # Stop if user interrupts
+                logging.info("Sampling was manually stopped.")
+                return
             pm25_values = [self._fetch_station_pm25(lat, lon) for lat, lon in stations if self._fetch_station_pm25(lat, lon) is not None]
 
             if pm25_values:
@@ -124,6 +128,10 @@ class AQIMonitor:
             self.sampling_status = "FAILED"
             logging.error("Sampling failed. No data collected.")
 
+        if self.sampling_status == "STOPPED":  # Stop if user interrupts
+            logging.info("Sampling was manually stopped.")
+            return
+
     def get_status(self) -> str:
 
         #this funciton will show sampling status
@@ -139,3 +147,9 @@ class AQIMonitor:
         else:
             logging.warning("Sampling not completed or no data available.")
             return None
+
+    def stop_sampling(self):
+        #manually stops the sampling process
+        if self.sampling_status == "RUNNING":
+            self.sampling_status = "STOPPED"
+            logging.info("Sampling process has been manually stopped.")
