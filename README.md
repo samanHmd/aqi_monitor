@@ -1,4 +1,3 @@
-```markdown
 # 🌍 AQIMonitor - Air Quality Monitoring in Python
 
 AQIMonitor is a **lightweight and efficient Python module** that fetches and averages **PM2.5 air pollution data** from AQICN's API.  
@@ -21,15 +20,15 @@ It allows users to sample air quality data from multiple monitoring stations wit
 To install AQIMonitor, clone the repository and install dependencies:
 
 ```
-git clone https://github.com/SamanHmd/aqi_monitor.git
-cd aqi_monitor
-pip install -r requirements.txt
+git clone https://github.com/SamanHmd/aqi_monitor.git  
+cd aqi_monitor  
+pip install -r requirements.txt  
 ```
 
 Or install it directly from GitHub:
 
 ```
-pip install git+https://github.com/SamanHmd/aqi_monitor.git
+pip install git+https://github.com/SamanHmd/aqi_monitor.git  
 ```
 
 ---
@@ -38,7 +37,7 @@ pip install git+https://github.com/SamanHmd/aqi_monitor.git
 
 ### 1️⃣ Initialize AQIMonitor
 
-```
+```python
 from aqi_monitor import AQIMonitor
 
 aqi_monitor = AQIMonitor(
@@ -52,19 +51,19 @@ aqi_monitor = AQIMonitor(
 
 ### 2️⃣ Start Sampling
 
-```
+```python
 aqi_monitor.start_sampling()
 ```
 
 ### 3️⃣ Check Sampling Status
 
-```
+```python
 print(aqi_monitor.get_status())  # Expected Output: "RUNNING" → "DONE"
 ```
 
 ### 4️⃣ Get Final PM2.5 Average
 
-```
+```python
 print(aqi_monitor.get_avg_pm25())  # Example Output: 14.7 µg/m³
 ```
 
@@ -109,5 +108,5 @@ We welcome contributions! To get started:
 ---
 
 ## ⭐ Support the Project
+
 If you find this project useful, **consider giving it a star ⭐ on GitHub**.  
-```
