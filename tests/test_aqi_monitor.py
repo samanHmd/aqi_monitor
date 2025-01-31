@@ -1,9 +1,12 @@
 import pytest
 import requests_mock
+import sys
+import os
+sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 from aqi_monitor import AQIMonitor
 
 # api_token
-API_TOKEN = "your_fake_api_token"
+API_TOKEN = "Your_API_TOKEN"
 
 #test coordinates 
 LAT1, LON1 = 37.78, -122.45  
@@ -76,7 +79,7 @@ def mock_pm25_api():
 
 
 def test_fetch_station_pm25(mock_pm25_api):
-    t#est PM2.5 retrieval with mock API
+    #test PM2.5 retrieval with mock API
     monitor = AQIMonitor(LAT1, LON1, LAT2, LON2, api_token=API_TOKEN)
     pm25 = monitor._fetch_station_pm25(37.75, -122.42)
     
