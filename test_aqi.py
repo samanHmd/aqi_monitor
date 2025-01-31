@@ -1,7 +1,7 @@
 from aqi_monitor import AQIMonitor
 
 #your api_token
-API_TOKEN = "921068569609ade79515f3c3f445336a2a3adf59"
+API_TOKEN = "YOUR_API_TOKEN"
 
 #your test coordinates
 latitude_1 = 45.69
